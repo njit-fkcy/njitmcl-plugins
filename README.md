@@ -19,12 +19,14 @@
 
 例如 `server-tool-v1.0.0`。
 
-每个 Release 必须上传两个资产：
+每个 Release 需上传**一个 zip 资产**：
 
 | 资产 | 说明 |
 |---|---|
 | `<plugin-id>-<version>.zip` | 插件包，解压后根目录包含 `plugin.json` 与入口程序 |
-| `plugin.json` | 元数据文件，供官网中控读取，内容与 zip 内一致 |
+
+上架信息由仓库根目录的 [`plugins.json`](plugins.json) 统一维护，官网中控只读这个索引，再按 `id + 版本` 匹配对应 Release 的 zip 下载地址。
+索引条目中的 `entry` 必须与 zip 内 `plugin.json` 的 `entry` 一致。
 
 ### plugin.json
 
@@ -73,6 +75,8 @@ server-tool-1.0.0.zip
 ## 发布步骤（管理员）
 
 1. 本地准备好 `plugin.json` 与插件目录，打成 `<plugin-id>-<version>.zip`（`plugin.json` 位于 zip 根目录）。
-2. 在本仓库创建 Release，tag 使用 `<plugin-id>-v<version>`。
-3. 上传 zip 与 `plugin.json` 两个资产。
+2. 在本仓库创建 Release，tag 使用 `<plugin-id>-v<version>`，上传 zip 资产。
+3. 在仓库根目录 `plugins.json` 的 `plugins` 数组里追加或更新该插件条目，提交到 `main`。
 4. 官网 `/api/plugins` 有 10 分钟缓存，等待缓存过期后启动器即可看到新插件。
+
+> 只发 Release 而不更新 `plugins.json`，插件不会出现在市场里；索引与 Release 的版本号必须一致。
