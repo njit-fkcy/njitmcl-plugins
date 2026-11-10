@@ -9,6 +9,16 @@
       "description": "用于验证插件市场下载、安装与唤起流程的最小示例。",
       "author": "NJIT MCL",
       "homepage": "https://njitmc.club"
+    },
+    {
+      "id": "gh-dns-proxy",
+      "name": "GitHub 防污染代理",
+      "version": "1.0.0",
+      "entry": "NjitGhProxy.exe",
+      "minLauncherVersion": "1.8.0",
+      "description": "为系统全局提供 GitHub 等域名的 DNS 防污染直连代理，只修正解析，不突破网络封锁。",
+      "author": "NJIT MCL",
+      "homepage": "https://njitmc.club"
     }
   ]
 }
