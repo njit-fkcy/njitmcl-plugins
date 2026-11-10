@@ -1,0 +1,14 @@
+{
+  "plugins": [
+    {
+      "id": "example-plugin",
+      "name": "示例插件",
+      "version": "1.0.0",
+      "entry": "ExamplePlugin.exe",
+      "minLauncherVersion": "1.8.0",
+      "description": "用于验证插件市场下载、安装与唤起流程的最小示例。",
+      "author": "NJIT MCL",
+      "homepage": "https://njitmc.club"
+    }
+  ]
+}
